@@ -9,7 +9,7 @@ class Tests(unittest.TestCase):
             [" ", " ", "O"]
         ]
         self.assertTrue(check_winner(board, "X"))
-        self.assertTrue(check_winner(board, "O"))
+        self.assertFalse(check_winner(board, "O"))
 
 if __name__ == "__main__":
     unittest.main()
