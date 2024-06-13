@@ -45,7 +45,7 @@ class Tests(unittest.TestCase):
             ["O", "X", " "],
             [" ", " ", "O"]
         ]
-        self.assertTrue(check_tie(board))
+        self.assertFalse(check_tie(board))
         self.assertFalse(check_winner(board, "X"))
         self.assertFalse(check_winner(board, "O"))
 
