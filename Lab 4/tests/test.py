@@ -17,8 +17,8 @@ class Tests(unittest.TestCase):
             ["O", "X", " "],
             ["O", " ", "X"]
         ]
-        self.assertFalse(check_winner(board, "O"))
-        self.assertTrue(check_winner(board, "X"))
+        self.assertTrue(check_winner(board, "O"))
+        self.assertFalse(check_winner(board, "X"))
 
 if __name__ == "__main__":
     unittest.main()
