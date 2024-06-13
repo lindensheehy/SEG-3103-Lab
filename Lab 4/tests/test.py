@@ -29,5 +29,15 @@ class Tests(unittest.TestCase):
         self.assertTrue(check_winner(board, "X"))
         self.assertFalse(check_winner(board, "O"))
 
+    def test_tie(self):
+        board = [
+            ["X", "O", "X"],
+            ["O", "X", "O"],
+            ["O", "X", "O"]
+        ]
+        self.assertFalse(check_tie(board))
+        self.assertFalse(check_winner(board, "X"))
+        self.assertFalse(check_winner(board, "O"))
+
 if __name__ == "__main__":
     unittest.main()
