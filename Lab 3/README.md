@@ -1,0 +1,1 @@
+To run open a linux terminal into the date directory and run './bin/jacoco', it should run the tests and all should be successful. From there open the 'index.html' file in the report directory. Percent coverage for Date class should be 99% from my changes. Screenshot of the coverage output is in the assets folder.
