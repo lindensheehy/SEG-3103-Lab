@@ -20,5 +20,14 @@ class Tests(unittest.TestCase):
         self.assertTrue(check_winner(board, "O"))
         self.assertFalse(check_winner(board, "X"))
 
+    def test_winner_diagonal(self):
+        board = [
+            ["X", "O", " "],
+            ["O", "X", " "],
+            [" ", "O", "X"]
+        ]
+        self.assertTrue(check_winner(board, "X"))
+        self.assertTrue(check_winner(board, "O"))
+
 if __name__ == "__main__":
     unittest.main()
