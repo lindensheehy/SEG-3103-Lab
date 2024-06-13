@@ -27,9 +27,7 @@ class Tests(unittest.TestCase):
             [" ", "O", "X"]
         ]
         self.assertTrue(check_winner(board, "X"))
-        self.assertTrue(check_winner(board, "O"))
-
-        #comment
+        self.assertFalse(check_winner(board, "O"))
 
 if __name__ == "__main__":
     unittest.main()
