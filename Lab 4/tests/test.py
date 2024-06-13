@@ -11,5 +11,14 @@ class Tests(unittest.TestCase):
         self.assertTrue(check_winner(board, "X"))
         self.assertFalse(check_winner(board, "O"))
 
+    def test_winner_column(self):
+        board = [
+            ["O", "X", " "],
+            ["O", "X", " "],
+            ["O", " ", "X"]
+        ]
+        self.assertTrue(check_winner(board, "O"))
+        self.assertTrue(check_winner(board, "X"))
+
 if __name__ == "__main__":
     unittest.main()
