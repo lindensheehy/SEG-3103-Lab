@@ -1,6 +1,27 @@
+defmodule Calculator do
+
+  def percentage_grade(_marks) do
+    :rand.uniform(100)
+  end
+
+  def letter_grade(_marks) do
+    case :rand.uniform(3) do
+      1 -> "A+"
+      2 -> "B"
+      3 -> "EIN"
+    end
+  end
+
+  def numeric_grade(_marks) do
+    :rand.uniform(11) - 1
+  end
+
+end
+
+
 defmodule GradesWeb.PageLive do
+
   use GradesWeb, :live_view
-  alias Grades.Calculator
 
   @impl true
   def mount(_params, _session, socket) do
@@ -132,4 +153,5 @@ defmodule GradesWeb.PageLive do
   end
 
   defp my_reply(socket, ok), do: {ok, socket}
+
 end
