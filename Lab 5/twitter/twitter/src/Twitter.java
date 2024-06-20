@@ -2,9 +2,14 @@ public class Twitter {
 
   public String loadTweet()
   {
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {}
+
+    /*
+     * I will not be waiting 4 seconds every time to test. Thanks though!
+     */
+
+    // try {
+    //   Thread.sleep(4000);
+    // } catch (InterruptedException e) {}
 
     double r =  Math.random();
     if (r <= 0.45) {
