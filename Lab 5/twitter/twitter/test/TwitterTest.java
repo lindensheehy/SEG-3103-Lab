@@ -61,7 +61,12 @@ class TwitterTest {
         // isMentionned("me") should be true
         // isMentionned("you") should be false
 
-        Twitter twitter = new Twitter();
+        Twitter twitter = partialMockBuilder(Twitter.class)
+          .addMockedMethod("loadTweet")
+          .createMock();
+
+        expect(twitter.loadTweet()).andReturn("hello @me").times(2);
+        replay(twitter);
 
         boolean actual;
 
@@ -80,7 +85,12 @@ class TwitterTest {
         // isMentionned("me") should be false
         // isMentionned("meat") should be true
 
-        Twitter twitter = new Twitter();
+        Twitter twitter = partialMockBuilder(Twitter.class)
+          .addMockedMethod("loadTweet")
+          .createMock();
+
+        expect(twitter.loadTweet()).andReturn("hello @meat").times(2);
+        replay(twitter);
 
         boolean actual;
 
@@ -99,7 +109,12 @@ class TwitterTest {
         // isMentionned("me") should be true
         // isMentionned("meat") should be false
 
-        Twitter twitter = new Twitter();
+        Twitter twitter = partialMockBuilder(Twitter.class)
+          .addMockedMethod("loadTweet")
+          .createMock();
+
+        expect(twitter.loadTweet()).andReturn("hello @me").times(2);
+        replay(twitter);
 
         boolean actual;
 
@@ -118,7 +133,12 @@ class TwitterTest {
         // isMentionned("me") should be false
         // isMentionned("meat") should be false
 
-        Twitter twitter = new Twitter();
+        Twitter twitter = partialMockBuilder(Twitter.class)
+          .addMockedMethod("loadTweet")
+          .createMock();
+
+        expect(twitter.loadTweet()).andReturn("hello").times(2);
+        replay(twitter);
 
         boolean actual;
 

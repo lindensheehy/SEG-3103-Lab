@@ -23,7 +23,9 @@ public class Twitter {
 
   public boolean isMentionned(String name) {
     String tweet = loadTweet();
-    return tweet.contains("@" + name);
+    boolean option1 = tweet.contains("@" + name + " ");
+    boolean option2 = tweet.indexOf('@') + name.length() == tweet.length() - 1;
+    return option1 || option2;
   }
 
 }
