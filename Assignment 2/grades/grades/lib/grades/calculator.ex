@@ -5,7 +5,8 @@ defmodule Grades.Calculator do
     try do
       Enum.sum(input) / Enum.count(input)
     rescue
-      exception -> 0
+      ArithmeticError -> 0
+      Enum.EmptyError -> 0
     end
 
   end
