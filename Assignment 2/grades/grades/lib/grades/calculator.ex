@@ -1,19 +1,19 @@
 defmodule Grades.Calculator do
 
-  def avg(%{input: input}) do
+  def avg(input) do
 
     try do
       Enum.sum(input) / Enum.count(input)
     rescue
-      0
+      exception -> 0
     end
 
   end
 
   def percentage_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
 
-    avg_homework = avg(%{input: homework})
-    avg_labs = avg(%{input: labs})
+    avg_homework = avg(homework)
+    avg_labs = avg(labs)
 
     round((0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final) * 100)
 
@@ -21,8 +21,8 @@ defmodule Grades.Calculator do
 
   def grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
 
-    avg_homework = avg(%{input: homework})
-    avg_labs = avg(%{input: labs})
+    avg_homework = avg(homework)
+    avg_labs = avg(labs)
     avg_exams = (midterm + final) / 2
 
     num_labs =
