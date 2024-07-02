@@ -31,7 +31,7 @@ defmodule Grades.Calculator do
       |> Enum.count()
 
     if avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3 do
-      "EIN"
+      -1
     else
       0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
     end
@@ -43,7 +43,7 @@ defmodule Grades.Calculator do
     mark = grade(%{homework: homework, labs: labs, midterm: midterm, final: final})
 
     # Return when mark is "EIN"
-    if (mark == "EIN") do "EIN" end
+    if (mark == -1) do "EIN" end
 
     cond do
       mark > 0.895 -> "A+"
@@ -66,7 +66,7 @@ defmodule Grades.Calculator do
     mark = grade(%{homework: homework, labs: labs, midterm: midterm, final: final})
 
     # Return when mark is "EIN"
-    if (mark == "EIN") do "EIN" end
+    if (mark == -1) do 0 end
 
     cond do
       mark > 0.895 -> 10
