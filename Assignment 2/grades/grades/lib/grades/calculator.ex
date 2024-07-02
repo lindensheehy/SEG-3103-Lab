@@ -42,6 +42,9 @@ defmodule Grades.Calculator do
 
     mark = grade(%{homework: homework, labs: labs, midterm: midterm, final: final})
 
+    # Return when mark is "EIN"
+    if (mark == "EIN") do "EIN" end
+
     cond do
       mark > 0.895 -> "A+"
       mark > 0.845 -> "A"
@@ -61,6 +64,9 @@ defmodule Grades.Calculator do
   def numeric_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
 
     mark = grade(%{homework: homework, labs: labs, midterm: midterm, final: final})
+
+    # Return when mark is "EIN"
+    if (mark == "EIN") do "EIN" end
 
     cond do
       mark > 0.895 -> 10
