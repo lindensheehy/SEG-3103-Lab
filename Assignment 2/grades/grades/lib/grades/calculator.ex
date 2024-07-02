@@ -2,11 +2,12 @@ defmodule Grades.Calculator do
 
   def avg(input) do
 
-    try do
-      Enum.sum(input) / Enum.count(input)
-    rescue
-      ArithmeticError -> 0
-      Enum.EmptyError -> 0
+    count = Enum.count(input)
+
+    if count != 0 do
+      Enum.sum(input) / count
+    else
+      0
     end
 
   end
@@ -31,6 +32,11 @@ defmodule Grades.Calculator do
       |> Enum.reject(fn mark -> mark < 0.25 end)
       |> Enum.count()
 
+    # IO.puts("hw: ")
+    # IO.puts(homework)
+    # IO.puts("avg: ")
+    # IO.puts(avg_homework)
+
     if avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3 do
       -1
     else
@@ -44,20 +50,22 @@ defmodule Grades.Calculator do
     mark = grade(%{homework: homework, labs: labs, midterm: midterm, final: final})
 
     # Return when mark is "EIN"
-    if (mark == -1) do "EIN" end
-
-    cond do
-      mark > 0.895 -> "A+"
-      mark > 0.845 -> "A"
-      mark > 0.795 -> "A-"
-      mark > 0.745 -> "B+"
-      mark > 0.695 -> "B"
-      mark > 0.645 -> "C+"
-      mark > 0.595 -> "C"
-      mark > 0.545 -> "D+"
-      mark > 0.495 -> "D"
-      mark > 0.395 -> "E"
-      :else -> "F"
+    if (mark == -1) do
+      "EIN"
+    else
+      cond do
+        mark > 0.895 -> "A+"
+        mark > 0.845 -> "A"
+        mark > 0.795 -> "A-"
+        mark > 0.745 -> "B+"
+        mark > 0.695 -> "B"
+        mark > 0.645 -> "C+"
+        mark > 0.595 -> "C"
+        mark > 0.545 -> "D+"
+        mark > 0.495 -> "D"
+        mark > 0.395 -> "E"
+        :else -> "F"
+      end
     end
 
   end
